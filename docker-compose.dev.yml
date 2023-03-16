@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./deliverlik-be
+      target: development
+    volumes:
+      - ./deliverlik-be/:/usr/src/app/server
+      - /usr/src/app/server/node_modules
+    ports:
+      - 3000:3000
+    command: yarn dev
+  
