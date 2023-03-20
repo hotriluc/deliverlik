@@ -1,8 +1,12 @@
 import express, { Request, Response } from "express";
 
 const app = express();
+const cors = require("cors");
 
-app.get("/", (req: Request, res: Response) => {
+const whitelist = ["http://localhost:5173"];
+app.use(cors({ origin: [...whitelist] }));
+
+app.get("/api/v1/hi", (req: Request, res: Response) => {
   return res.json({
     status: "success",
   });
