@@ -1,15 +1,25 @@
 import axios from "axios";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import { Button } from "./styles/Buttons.style";
+
+import Root from "./routes/Root";
+import Restaurants from "./routes/Restaurants";
+import Home from "./routes/Home";
+
+export const router = createBrowserRouter([
+  {
+    element: <Root />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "restaurants", element: <Restaurants /> },
+    ],
+  },
+]);
 
 function App() {
-  // useEffect(() => {
-  //   axios.get("/api/v1/hi", {}).then((res) => console.log(res));
-  // }, []);
-
   return (
     <Layout>
-      <Button>Hello world</Button>
+      <RouterProvider router={router} />
     </Layout>
   );
 }
