@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     body {
     padding: 0;
     margin: 0;
-    background: ${(props) => props.theme.colors.primary};
+    background: ${(props) => props.theme.colors.tertiary};
     color:  ${(props) => props.theme.colors.secondary};
     overscroll-behavior: none;
     overflow-x: hidden;
@@ -33,21 +33,16 @@ const GlobalStyle = createGlobalStyle`
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
-  } 
+    font-size: 1.28rem;
+  }
 `;
 
 const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
-  const darkTheme: DefaultTheme = {
-    colors: {
-      primary: "#101010",
-      secondary: "#ffffff",
-    },
-  };
-
   const lightTheme: DefaultTheme = {
     colors: {
-      primary: "#ffffff",
+      primary: "#F3EBD5",
       secondary: "#101010",
+      tertiary: "#ffffff",
     },
   };
 
