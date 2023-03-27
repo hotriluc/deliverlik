@@ -6,9 +6,11 @@ import { NavigationSearch } from "./NavigationSearch";
 
 const Nav = styled.nav`
   display: flex;
-  padding: 3.5rem 4rem;
   align-items: center;
   justify-content: space-between;
+
+  padding: 3.5rem 4rem;
+  background-color: ${(props) => props.theme.colors.primary};
 `;
 
 const Navigation = () => {

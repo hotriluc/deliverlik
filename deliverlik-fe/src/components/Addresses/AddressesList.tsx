@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import { IAddress } from "../../interfaces/Address.interface";
-
 import AddressesListItem from "./AddressesListItem";
 
 const List = styled.ul`
   list-style: none;
   min-width: 46.5rem;
+  overflow: hidden;
 
-  box-shadow: 0rem 0.3rem 1rem rgba(0, 0, 0, 0.25);
-  border-radius: 4.18px;
+  box-shadow: ${(props) => props.theme.boxShadows.whiteBackground};
+  border-radius: ${(props) => props.theme.borderRadius};
 `;
 
 const addressesList: Array<IAddress> = [

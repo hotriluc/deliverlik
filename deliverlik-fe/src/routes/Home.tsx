@@ -2,28 +2,33 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Flex } from "../styled/Global.style";
 
-import AddressesList from "../components/Addresses/AddressesList";
-import AddressSearch from "../components/Addresses/AddressSearch";
+import AddressesList from "../components/addresses/AddressesList";
+import AddressSearch from "../components/addresses/AddressSearch";
+import SlideShowPanel from "../components/slideshow-panel/SlideShowPanel";
 
-const Section = styled.section`
-  padding: 0 4rem;
-  height: 100vh;
+const SectionHero = styled.section`
+  height: 100%;
 `;
 
 const Home = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <Section>
-      <Flex column alignCenter>
-        <h1 style={{ marginTop: "12rem" }}>
-          Restaurant food, takeaway, groceries. Delivered.
-        </h1>
-        {!isLoggedIn && <p>Logged in for you addresses</p>}
-        <AddressSearch />
-        <AddressesList />
-      </Flex>
-    </Section>
+    <>
+      <SectionHero>
+        <Flex column alignCenter>
+          <h1 style={{ marginTop: "12rem" }}>
+            Restaurant food, takeaway, groceries. Delivered.
+          </h1>
+          {!isLoggedIn && <p>Log in for you addresses</p>}
+          <AddressSearch />
+          <p>Or, select you recent address</p>
+          <AddressesList />
+        </Flex>
+        <SlideShowPanel />
+      </SectionHero>
+      <section>About</section>
+    </>
   );
 };
 

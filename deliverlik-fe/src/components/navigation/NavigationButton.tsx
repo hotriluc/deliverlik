@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
-  border: none;
   padding: 1rem 1rem;
   font-size: 1.28rem;
   font-weight: bold;
@@ -11,11 +10,22 @@ const Button = styled.button`
   min-height: 4rem;
 
   cursor: pointer;
-  background-color: ${(props) => props.theme.colors.tertiary};
   color: ${(props) => props.theme.colors.secondary};
+  border: none;
+  background-color: ${(props) => props.theme.colors.background};
+  border-radius: ${(props) => props.theme.borderRadius};
+  box-shadow: ${(props) => props.theme.boxShadows.primaryBackground};
 
-  box-shadow: 0rem 0.3rem 1rem rgba(0, 0, 0, 0.25);
-  border-radius: 4.18px;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.background};
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 const NavigationButton = (props: any) => {

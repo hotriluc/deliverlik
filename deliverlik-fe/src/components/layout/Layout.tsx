@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
     body {
     padding: 0;
     margin: 0;
-    background: ${(props) => props.theme.colors.tertiary};
+    background: ${(props) => props.theme.colors.background};
     color:  ${(props) => props.theme.colors.secondary};
     overscroll-behavior: none;
     overflow-x: hidden;
@@ -41,9 +41,20 @@ const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
   const lightTheme: DefaultTheme = {
     colors: {
       primary: "#F3EBD5",
+      primaryDark: "#E7D39F",
       secondary: "#101010",
-      tertiary: "#ffffff",
+      background: "#FFFFFF",
+
+      accentOne: "#767676",
+      accentTwo: "#B7B7B7",
+      accentThree: "#E1E1E1",
+      accentFour: "#FAFAFA",
     },
+    boxShadows: {
+      primaryBackground: `0rem 0.3rem 1rem rgba(176, 170, 153, 0.518)`,
+      whiteBackground: `0rem 0.3rem 1rem rgba(184, 184, 184, 0.518)`,
+    },
+    borderRadius: "10.18px",
   };
 
   return (

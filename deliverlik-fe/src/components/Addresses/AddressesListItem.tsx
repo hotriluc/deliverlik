@@ -8,8 +8,14 @@ interface AddressesListItemProps {
 
 const AddressItem = styled.li`
   padding: 2rem 1rem;
+  cursor: pointer;
+
   &:not(:last-child) {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid ${(props) => props.theme.colors.accentThree};
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme.colors.accentThree};
   }
 `;
 

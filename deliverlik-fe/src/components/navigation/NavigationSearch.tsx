@@ -7,8 +7,8 @@ const SearchInput = styled.input`
   padding: 1em;
 
   border: none;
-  box-shadow: 0rem 0.3rem 1rem rgba(0, 0, 0, 0.25);
-  border-radius: 4.18px;
+  box-shadow: ${(props) => props.theme.boxShadows.primaryBackground};
+  border-radius: ${(props) => props.theme.borderRadius};
 `;
 
 export const NavigationSearch = () => {
