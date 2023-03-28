@@ -5,9 +5,14 @@ import { Flex } from "../styled/Global.style";
 import AddressesList from "../components/addresses/AddressesList";
 import AddressSearch from "../components/addresses/AddressSearch";
 import SlideShowPanel from "../components/slideshow-panel/SlideShowPanel";
+import ExplainerCard from "../components/ui/ExplainerCard";
 
 const SectionHero = styled.section`
   height: 100%;
+`;
+
+const SectionExplainer = styled.section`
+  padding: 4rem 4rem;
 `;
 
 const Home = () => {
@@ -27,7 +32,9 @@ const Home = () => {
         </Flex>
         <SlideShowPanel />
       </SectionHero>
-      <section>About</section>
+      <SectionExplainer>
+        <ExplainerCard />
+      </SectionExplainer>
     </>
   );
 };

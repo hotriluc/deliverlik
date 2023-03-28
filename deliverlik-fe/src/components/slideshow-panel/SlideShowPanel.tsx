@@ -2,14 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const Panel = styled.div`
-  margin-top: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  background-color: ${(props) => props.theme.colors.primary};
+
+  margin-top: 5rem;
   padding: 2rem;
   min-height: 30rem;
+
+  background-color: ${(props) => props.theme.colors.primary};
 `;
 
 const PanelRow = styled.div`

@@ -33,8 +33,13 @@ const GlobalStyle = createGlobalStyle`
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     -webkit-font-smoothing: antialiased;
-    font-size: 1.28rem;
+    font-size: 1.6rem;
   }
+
+  h1 {
+    font-size: 4rem;
+  }
+
 `;
 
 const Layout = ({ children }: { children: JSX.Element | JSX.Element[] }) => {
