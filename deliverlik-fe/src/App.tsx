@@ -1,39 +1,26 @@
-import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
-
 import axios from "axios";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+
+import Root from "./routes/Root";
+import Restaurants from "./routes/Restaurants";
+import Home from "./routes/Home";
+
+export const router = createBrowserRouter([
+  {
+    element: <Root />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "restaurants", element: <Restaurants /> },
+    ],
+  },
+]);
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    axios.get("/api/v1/hi", {}).then((res) => console.log(res));
-  }, []);
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React + TS</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <Layout>
+      <RouterProvider router={router} />
+    </Layout>
   );
 }
 
