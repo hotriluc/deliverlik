@@ -9,6 +9,10 @@ const SearchInput = styled.input`
   border: none;
   box-shadow: ${(props) => props.theme.boxShadows.primaryBackground};
   border-radius: ${(props) => props.theme.borderRadius};
+
+  &::placeholder {
+    color: ${(props) => props.theme.colors.accentOne};
+  }
 `;
 
 export const NavigationSearch = () => {

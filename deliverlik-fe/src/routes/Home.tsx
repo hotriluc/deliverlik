@@ -5,9 +5,9 @@ import { Flex } from "../styled/Global.style";
 import AddressesList from "../components/addresses/AddressesList";
 import AddressSearch from "../components/addresses/AddressSearch";
 import SlideShowPanel from "../components/slideshow-panel/SlideShowPanel";
-import ExplainerCard from "../components/ui/ExplainerCard";
+import ExplainerCard from "../components/cards/ExplainerCard";
 import Merch from "../components/merch/Merch";
-import PartnershipCard from "../components/ui/PartnershipCard";
+import PartnershipCard from "../components/cards/PartnershipCard";
 
 const SectionHero = styled.section`
   height: 100%;

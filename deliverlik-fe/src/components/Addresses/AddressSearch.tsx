@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const SearchWrapper = styled.div`
@@ -47,10 +48,19 @@ const SearchButton = styled.button`
 `;
 
 const AddressSearch = () => {
+  const navigate = useNavigate();
+
+  /**
+   * Pass index from input and search for restaurants by that index
+   */
+  const onClickSearchHandler = () => {
+    navigate("/restaurants");
+  };
+
   return (
     <SearchWrapper>
       <SearchInput placeholder="e.g. N1 6DX"></SearchInput>
-      <SearchButton>Search</SearchButton>
+      <SearchButton onClick={onClickSearchHandler}>Search</SearchButton>
     </SearchWrapper>
   );
 };
