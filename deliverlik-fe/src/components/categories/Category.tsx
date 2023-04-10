@@ -1,11 +1,12 @@
 import React from "react";
 import { IRestaurant } from "../../interfaces/Restaurant.interface";
 import styled from "styled-components";
-import { Flex } from "../../styled/Global.style";
 import RestaurantCard from "../cards/RestaurantCard";
+import BrandCard from "../cards/BrandCard";
 
 interface CategoryProps {
   name: string;
+  cardType?: "brand" | "restaurant" | "type";
   data: Array<IRestaurant>;
 }
 
@@ -23,15 +24,16 @@ const Carousel = styled.ul`
 
 const CarouselItem = styled.li``;
 
-const Category = ({ name, data }: CategoryProps) => {
+const Category = ({ name, cardType, data }: CategoryProps) => {
   return (
     <CategoryWrapper>
       <h2> {name || "noname"}</h2>
 
       <Carousel>
-        {data.map((restaurant, index) => (
+        {data.map((el, index) => (
           <CarouselItem key={name + "_" + index}>
-            <RestaurantCard data={restaurant} />
+            {cardType === "restaurant" && <RestaurantCard data={el} />}
+            {cardType === "brand" && <BrandCard data={el} />}
           </CarouselItem>
         ))}
       </Carousel>

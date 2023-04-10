@@ -53,7 +53,7 @@ const TagsList = styled.ul`
   gap: 1rem;
 
   li {
-    font-size: 1.25rem;
+    font-size: 1.28rem;
     font-weight: bold;
 
     background-color: ${(props) => props.theme.colors.background};
@@ -72,14 +72,14 @@ const CardData = styled.div`
   gap: 1rem;
 
   p {
-    font-size: 1.25rem;
+    font-size: 1.28rem;
   }
+`;
 
-  div {
-    display: flex;
-    gap: 1rem;
-    color: ${(props) => props.theme.colors.accentOne};
-  }
+const CardBulletInfo = styled.div`
+  display: flex;
+  gap: 1rem;
+  color: ${(props) => props.theme.colors.accentOne};
 `;
 
 const RestaurantCard = ({ data }: RestaurantCardProps) => {
@@ -101,7 +101,7 @@ const RestaurantCard = ({ data }: RestaurantCardProps) => {
 
         <Like>
           <button>❤️</button>
-          <p>({likes})</p>
+          <strong>({likes})</strong>
         </Like>
         <Time>
           <strong>{data.deliveryTime}</strong> min
@@ -112,10 +112,10 @@ const RestaurantCard = ({ data }: RestaurantCardProps) => {
         <p>
           ⭐️ {data.rating} {ratingDescription} ({likes})
         </p>
-        <div>
+        <CardBulletInfo>
           <p>{data.distance} miles away</p>
           <p>£{data.deliveryFee} delivery fee</p>
-        </div>
+        </CardBulletInfo>
       </CardData>
     </Card>
   );

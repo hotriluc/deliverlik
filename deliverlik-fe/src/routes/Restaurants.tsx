@@ -11,14 +11,22 @@ import { IRestaurant } from "../interfaces/Restaurant.interface";
 // group by nearest distance
 const response: Array<{
   name: string;
-  currentPage: number;
-  nextPage: 1;
+  cardType?: "restaurant" | "brand" | "type";
+  pagination: {
+    currentPage: number;
+    nextPage: number;
+    limit: number;
+  };
   data: Array<IRestaurant>;
 }> = [
   {
     name: "Delivering to #index",
-    currentPage: 0,
-    nextPage: 1,
+    cardType: "restaurant",
+    pagination: {
+      currentPage: 0,
+      nextPage: 1,
+      limit: 4,
+    },
     data: [
       {
         id: "1",
@@ -61,8 +69,12 @@ const response: Array<{
 
   {
     name: "Popular brands",
-    currentPage: 0,
-    nextPage: 1,
+    cardType: "brand",
+    pagination: {
+      currentPage: 0,
+      nextPage: 1,
+      limit: 6,
+    },
     data: [
       {
         id: "1",
@@ -100,6 +112,54 @@ const response: Array<{
         deliveryFee: 0.99,
         deliveryTime: 35,
       },
+      {
+        id: "4",
+        name: "Restoranlik",
+        rating: 4.7,
+        likes: 500,
+
+        distance: 0.5,
+        deliveryFee: 0.99,
+        deliveryTime: 35,
+
+        isOurChoice: true,
+        tags: [
+          { description: "Spend £10", color: "red" },
+          { description: "Get 50% off", color: "black" },
+        ],
+      },
+      {
+        id: "5",
+        name: "Restoranlik",
+        rating: 4.7,
+        likes: 500,
+
+        distance: 0.5,
+        deliveryFee: 0.99,
+        deliveryTime: 35,
+
+        isOurChoice: true,
+        tags: [
+          { description: "Spend £10", color: "red" },
+          { description: "Get 50% off", color: "black" },
+        ],
+      },
+      {
+        id: "6",
+        name: "Restoranlik",
+        rating: 4.7,
+        likes: 500,
+
+        distance: 0.5,
+        deliveryFee: 0.99,
+        deliveryTime: 35,
+
+        isOurChoice: true,
+        tags: [
+          { description: "Spend £10", color: "red" },
+          { description: "Get 50% off", color: "black" },
+        ],
+      },
     ],
   },
 ];
@@ -114,6 +174,7 @@ const Restaurants = () => {
           <Category
             key={category.name}
             name={category.name}
+            cardType={category.cardType}
             data={category.data}
           />
         ))}
