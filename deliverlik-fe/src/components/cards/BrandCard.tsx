@@ -6,7 +6,6 @@ import { IRestaurant } from "../../interfaces/Restaurant.interface";
 const Card = styled.div`
   border-radius: ${(props) => props.theme.borderRadius};
   box-shadow: ${(props) => props.theme.boxShadows.whiteBackground};
-  min-width: 34rem;
   overflow: hidden;
 
   display: flex;
@@ -52,7 +51,6 @@ interface BrandCardProps {
 }
 
 const BrandCard = ({ data }: BrandCardProps) => {
-  const ratingDescription = data.rating > 4.4 ? "Excellent" : "Good";
   const likes = data.likes >= 500 ? "500+" : data.likes;
 
   return (

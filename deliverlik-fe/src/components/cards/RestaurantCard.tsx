@@ -10,7 +10,6 @@ interface RestaurantCardProps {
 const Card = styled.div`
   border-radius: ${(props) => props.theme.borderRadius};
   box-shadow: ${(props) => props.theme.boxShadows.whiteBackground};
-  min-width: 34rem;
   overflow: hidden;
 `;
 

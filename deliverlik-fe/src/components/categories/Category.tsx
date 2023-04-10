@@ -1,6 +1,6 @@
 import React from "react";
 import { IRestaurant } from "../../interfaces/Restaurant.interface";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import RestaurantCard from "../cards/RestaurantCard";
 import BrandCard from "../cards/BrandCard";
 
@@ -16,25 +16,33 @@ const CategoryWrapper = styled.div`
   gap: 3rem;
 `;
 
-const Carousel = styled.ul`
+const Carousel = styled.ul<{
+  gap?: number;
+  columns?: number;
+}>`
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  li {
+    flex-basis: calc(
+      100% / ${(props) => props.columns || 3} - 2rem +
+        ${(props) => 2 / (props.columns || 3)}rem
+    );
+  }
 `;
-
-const CarouselItem = styled.li``;
 
 const Category = ({ name, cardType, data }: CategoryProps) => {
   return (
     <CategoryWrapper>
       <h2> {name || "noname"}</h2>
 
-      <Carousel>
+      <Carousel columns={3}>
         {data.map((el, index) => (
-          <CarouselItem key={name + "_" + index}>
+          <li key={name + "_" + index}>
             {cardType === "restaurant" && <RestaurantCard data={el} />}
             {cardType === "brand" && <BrandCard data={el} />}
-          </CarouselItem>
+          </li>
         ))}
       </Carousel>
     </CategoryWrapper>
