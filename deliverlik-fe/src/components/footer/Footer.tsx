@@ -31,8 +31,8 @@ const FooterMenu = styled.div`
   }
 `;
 
-// const Footer;
-
+// The footer configuration
+// later can be sent from backend
 const footerMenu: Array<IFooterMenu> = [
   {
     title: "Discover",

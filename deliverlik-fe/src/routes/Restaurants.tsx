@@ -11,7 +11,10 @@ import { IRestaurant } from "../interfaces/Restaurant.interface";
 // group by nearest distance
 const response: Array<{
   name: string;
-  cardType?: "restaurant" | "brand" | "type";
+  displayConfig: {
+    columns?: number;
+    cardType?: "restaurant" | "brand" | "default";
+  };
   pagination: {
     currentPage: number;
     nextPage: number;
@@ -19,9 +22,14 @@ const response: Array<{
   };
   data: Array<IRestaurant>;
 }> = [
+  // SELECT where index = ourIndex and GROUP BY TYPE and JOIN it with TYPES table
+
+  // SELECT where index = ourIndex
   {
     name: "Delivering to #index",
-    cardType: "restaurant",
+    displayConfig: {
+      cardType: "restaurant",
+    },
     pagination: {
       currentPage: 0,
       nextPage: 1,
@@ -37,6 +45,7 @@ const response: Array<{
         distance: 0.5,
         deliveryFee: 0.99,
         deliveryTime: 35,
+        type: "Italian",
 
         isOurChoice: true,
         tags: [
@@ -53,6 +62,7 @@ const response: Array<{
         distance: 1.5,
         deliveryFee: 0.99,
         deliveryTime: 35,
+        type: "Italian",
       },
       {
         id: "3",
@@ -63,13 +73,17 @@ const response: Array<{
         distance: 1.5,
         deliveryFee: 0.99,
         deliveryTime: 35,
+        type: "Italian",
       },
     ],
   },
 
+  // Select where rating > 4.4
   {
     name: "Popular brands",
-    cardType: "brand",
+    displayConfig: {
+      cardType: "brand",
+    },
     pagination: {
       currentPage: 0,
       nextPage: 1,
@@ -85,6 +99,7 @@ const response: Array<{
         distance: 0.5,
         deliveryFee: 0.99,
         deliveryTime: 35,
+        type: "Italian",
 
         isOurChoice: true,
         tags: [
@@ -101,6 +116,7 @@ const response: Array<{
         distance: 1.5,
         deliveryFee: 0.99,
         deliveryTime: 35,
+        type: "Italian",
       },
       {
         id: "3",
@@ -111,6 +127,7 @@ const response: Array<{
         distance: 1.5,
         deliveryFee: 0.99,
         deliveryTime: 35,
+        type: "Italian",
       },
       {
         id: "4",
@@ -121,6 +138,7 @@ const response: Array<{
         distance: 0.5,
         deliveryFee: 0.99,
         deliveryTime: 35,
+        type: "Italian",
 
         isOurChoice: true,
         tags: [
@@ -137,6 +155,7 @@ const response: Array<{
         distance: 0.5,
         deliveryFee: 0.99,
         deliveryTime: 35,
+        type: "Italian",
 
         isOurChoice: true,
         tags: [
@@ -153,6 +172,7 @@ const response: Array<{
         distance: 0.5,
         deliveryFee: 0.99,
         deliveryTime: 35,
+        type: "Italian",
 
         isOurChoice: true,
         tags: [
@@ -165,19 +185,25 @@ const response: Array<{
 ];
 
 const Restaurants = () => {
+  const categories = response.map((category) => {
+    return (
+      <Category
+        name={category.name}
+        data={category.data}
+        displayConfig={category.displayConfig}
+      />
+    );
+  });
+
   return (
     <Flex style={{ padding: "4rem" }} gap="4rem">
       <div style={{ minWidth: 325 }}>filters</div>
-
       <Flex column gap="5rem">
-        {response.map((category) => (
-          <Category
-            key={category.name}
-            name={category.name}
-            cardType={category.cardType}
-            data={category.data}
-          />
-        ))}
+        <div>
+          RESTAURANTS that deliver to this specific #INDEX GROUP them by #TYPE
+          and JOIN with table TYPES which consist generic image of food type
+        </div>
+        {categories}
       </Flex>
     </Flex>
   );

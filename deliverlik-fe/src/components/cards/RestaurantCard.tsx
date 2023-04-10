@@ -3,10 +3,6 @@ import { IRestaurant } from "../../interfaces/Restaurant.interface";
 import styled from "styled-components";
 import { Flex } from "../../styled/Global.style";
 
-interface RestaurantCardProps {
-  data: IRestaurant;
-}
-
 const Card = styled.div`
   border-radius: ${(props) => props.theme.borderRadius};
   box-shadow: ${(props) => props.theme.boxShadows.whiteBackground};
@@ -80,6 +76,10 @@ const CardBulletInfo = styled.div`
   gap: 1rem;
   color: ${(props) => props.theme.colors.accentOne};
 `;
+
+interface RestaurantCardProps {
+  data: IRestaurant;
+}
 
 const RestaurantCard = ({ data }: RestaurantCardProps) => {
   const ratingDescription = data.rating > 4.4 ? "Excellent" : "Good";

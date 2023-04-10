@@ -3,6 +3,8 @@ export interface IRestaurant {
   name: string;
   rating: number;
   likes: number;
+  type: string;
+  backgroundImg?: string;
 
   distance: number;
   deliveryFee: number;

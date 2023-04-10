@@ -13,6 +13,7 @@ const List = styled.ul`
   border-radius: ${(props) => props.theme.borderRadius};
 `;
 
+// later fetch addresses from backend
 const addressesList: Array<IAddress> = [
   { streetName: "Gvardeytsev Shironintsev 29A", index: "61054" },
   { streetName: "Gvardeytsev Shironintsev 29B", index: "61054" },
@@ -20,11 +21,12 @@ const addressesList: Array<IAddress> = [
   { streetName: "Gvardeytsev Shironintsev 29D", index: "61054" },
 ];
 
+// Show Users's orders addresses (on home page)
+// later when backend is ready pass addresses as props
 const AddressesList = () => {
-  // later fetch addresses from backend
-
   const [addresses, setAddresses] = useState<Array<IAddress>>([]);
 
+  // Render your addresses
   useEffect(() => {
     setAddresses(addressesList);
   }, []);

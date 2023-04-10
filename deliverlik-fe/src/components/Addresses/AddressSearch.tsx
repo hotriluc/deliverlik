@@ -55,6 +55,7 @@ const AddressSearch = () => {
    */
   const onClickSearchHandler = () => {
     navigate("/restaurants");
+    // navigate to restaurants page and send request to the backend (with specific filters (Address INDEX))
   };
 
   return (
